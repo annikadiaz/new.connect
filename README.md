@@ -9,7 +9,7 @@ I am looking forward to becoming more confident and comfortable with coding by l
 I am currently enrolled in a coding course to learn Swift and the basics of app development and design. 
 Through the course I am able to work on guided projects to learn and apply different Swift concepts 
 
-## Hangman Style Game 
+### Hangman Style Game 
 Through the course our first larger project was a word guessing game similar to Hangman, but with a tree that would lose apples 
 as the player selected incorrect letters. 
 ```

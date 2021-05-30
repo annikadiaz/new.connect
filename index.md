@@ -1,4 +1,4 @@
-## View my Most Recent Work
+## View My Most Recent Work
 
 I am currently enrolled in a coding course to learn Swift and the basics of app development and design. 
 Through the course I am able to work on guided projects to learn and apply different Swift concepts 

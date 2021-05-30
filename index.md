@@ -1,4 +1,4 @@
-# Welcome to My Portfolio
+# Welcome!
 
 My name is Annika and I am currently learning Swift and the basics of app development and design. 
 

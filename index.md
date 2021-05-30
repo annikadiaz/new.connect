@@ -1,7 +1,89 @@
-## Welcome to My Portfolio
+## View my Most Recent Work
 
-My name is Annika and I am currently learning Swift and the basics of app development and design. 
+I am currently enrolled in a coding course to learn Swift and the basics of app development and design. 
+Through the course I am able to work on guided projects to learn and apply different Swift concepts 
 
-I am looking forward to sharing my progress here and am open to suggestions and advice on ways to improve my skills!
+## Hangman Style Game 
 
+//
+//  ViewController.swift
+//  Apple Pie
+//
+//  Created by Annika Diaz on 5/27/21.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        newRound()
+        // Do any additional setup after loading the view.
+    }
+    
+    @IBOutlet var treeImageView: UIImageView!
+    @IBOutlet var correctWordLabel: UILabel!
+    @IBOutlet var scoreLabel: UILabel!
+    @IBOutlet var letterButtons: [UIButton]!
+    
+    var listOfWords = ["plant", "house", "animal", "research", "disease", "doctor"]
+    let incorrectMovesAllowed = 7
+    var totalWins = 0 {
+        didSet {
+            newRound ()
+        }}
+    var totalLosses = 0{
+        didSet {
+            newRound()
+        }}
+    
+    var currentGame: Game!
+    
+    func updateUI() {
+        var letters = [String]()
+        for letter in currentGame.formattedWord {
+            letters.append(String(letter))
+        }
+        let wordWithSpacing = letters.joined(separator: " ")
+        correctWordLabel.text = wordWithSpacing
+        scoreLabel.text = "Wins: \(totalWins), Losses: \(totalLosses)"
+        treeImageView.image = UIImage(named: "Tree \(currentGame.incorrectMovesRemaining)")
+    }
+    
+    func updateGameState() {
+        if currentGame.incorrectMovesRemaining == 0 {
+            totalLosses += 1
+        } else if currentGame.word == currentGame.formattedWord {
+            totalWins += 1
+        } else {
+            updateUI()
+        }
+    }
+    
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        sender.isEnabled = false
+        let letterString = sender.title(for: .normal)!
+        let letter = Character(letterString.lowercased())
+        currentGame.playerGuessed(letter: letter)
+        updateGameState()
+    }
+
+    func enableLetterButtons(_ enable: Bool) {
+        for button in letterButtons {
+            button.isEnabled = enable
+        }
+    }
+    
+    func newRound() {
+        if !listOfWords.isEmpty {
+        let newWord = listOfWords.removeFirst()
+        currentGame = Game(word: newWord, incorrectMovesRemaining: incorrectMovesAllowed, guessedLetters:[])
+        enableLetterButtons(true)
+        updateUI()
+        } else {
+            enableLetterButtons(false)
+        }
+}
+}//Annika Diaz 5/28/21
 

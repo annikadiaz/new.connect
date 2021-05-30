@@ -4,6 +4,8 @@ I am currently enrolled in a coding course to learn Swift and the basics of app 
 Through the course I am able to work on guided projects to learn and apply different Swift concepts 
 
 ## Hangman Style Game 
+Through the course our first larger project was a word guessing game similar to Hangman, but with a tree that would lose apples 
+as the player selected incorrect letters. 
 
 //
 //  ViewController.swift
@@ -86,4 +88,7 @@ class ViewController: UIViewController {
         }
 }
 }//Annika Diaz 5/28/21
+
+![Screen Shot 2021-05-30 at 1 27 35 PM](https://user-images.githubusercontent.com/84987285/120113941-cf9f5b00-c14a-11eb-8de8-3cf8da952727.png)
+
 
